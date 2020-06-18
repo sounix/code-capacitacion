@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node src/server_http.js"
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "Aldrin Gonzalez Cancino <sounix@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
