@@ -1,0 +1,12 @@
+{
+  "name": "code-capacitacion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/server_http.js"
+  },
+  "keywords": [],
+  "author": "Aldrin Gonzalez Cancino <sounix@gmail.com>",
+  "license": "MIT"
+}
