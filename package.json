@@ -2,11 +2,17 @@
   "name": "code-capacitacion",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "node src/server_http.js"
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "Aldrin Gonzalez Cancino <sounix@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^19.1.1"
+  }
 }
