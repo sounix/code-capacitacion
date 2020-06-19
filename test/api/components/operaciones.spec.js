@@ -2,7 +2,9 @@ const {
   suma,
   resta,
   multiplicacion,
+  division,
 } = require("../../../src/api/components/operaciones");
+
 describe("componente - operaciones", () => {
   describe("suma", () => {
     it("deberia existir la funcion", () => {
@@ -62,9 +64,11 @@ describe("componente - operaciones", () => {
       expect(resta(2, -2)).toBe(4);
       expect(resta(2, 0)).toBe(2);
       expect(resta(0, -2)).toBe(2);
-      expect(resta(2.2, 2)).toBe(0.2);
-      expect(resta(2, 2.4)).toBe(0.4);
-      expect(resta(2.2, 2.4)).toBe(0.2);
+      expect(resta(2.2, 2)).toBe(2.2 - 2);
+      expect(resta(2, 2.4)).toBe(2 - 2.4);
+      expect(resta(2.2, 2.4)).toBe(2.2 - 2.4);
+      expect(resta(2.2, 0)).toBe(2.2);
+      expect(resta(0, 2.4)).toBe(-2.4);
     });
   });
 
@@ -97,6 +101,37 @@ describe("componente - operaciones", () => {
       expect(multiplicacion(2.2, 2.4)).toBe(5.28);
       expect(multiplicacion(2, 0)).toBe(0);
       expect(multiplicacion(0, 2)).toBe(0);
+    });
+  });
+
+  describe("division", () => {
+    it("deberia existir la fucntion", () => {
+      expect(typeof division).toBe("function");
+    });
+    it("deberia pasar parametro a y ser un valor numerico", () => {
+      expect(division(undefined, 2)).toBe(null);
+      expect(division(null, 2)).toBe(null);
+      expect(division("a", 2)).toBe(null);
+      expect(division(true, 2)).toBe(null);
+      expect(division([2], 2)).toBe(null);
+      expect(division({ a: 2 }, 2)).toBe(null);
+    });
+    it("deberia pasar parametro b y ser un valor numerico", () => {
+      expect(division(2, undefined)).toBe(null);
+      expect(division(2, null)).toBe(null);
+      expect(division(2, "b")).toBe(null);
+      expect(division(2, false)).toBe(null);
+      expect(division(2, [2])).toBe(null);
+      expect(division(2, { b: 2 })).toBe(null);
+    });
+    it("deberia devolver un resultado numerico", () => {
+      expect(division(2, 2)).toBe(1);
+      expect(division(2, 1)).toBe(2);
+      expect(division(1, 2)).toBe(0.5);
+      expect(division(0, 1)).toBe(0);
+    });
+    it("deberia devolver null al pasar 0 como valor de b", () => {
+      expect(division(1, 0)).toBe(null);
     });
   });
 });
